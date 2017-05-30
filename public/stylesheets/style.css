@@ -89,7 +89,13 @@ body{
   width: 98.5%;
   margin:2px;
 }
+.github_link{
+  text-align:center;
+  padding:10px;
+  cursor:pointer;
+}
 
-.markdown_textarea{
-  /*border-right: 1px solid grey;*/
+a{
+  text-decoration:none;
+  color:black;
 }
