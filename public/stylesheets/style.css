@@ -42,10 +42,10 @@ body{
 
 .nav_link_container{
   border-top:1px solid grey;
+  border-bottom:1px solid grey;
 }
 
 .nav_add_file_btn{
-  border-top:1px solid grey;
   padding-left:5%;
   padding: 5% 0 0 5%;
 }
@@ -72,6 +72,7 @@ body{
   float:right;
   margin-right:20px;
   cursor:pointer;
+  margin-top:-17px;
 }
 
 .content{
