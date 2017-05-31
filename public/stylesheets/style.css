@@ -107,16 +107,11 @@ body{
   height:100vh;
 }
 
-.markdown_textarea, .preview_textarea{
+.markdown_textarea{
   height:85vh;
   width:98%;
   background-color:white;
   border:none;
-}
-
-.preview_textarea{
-  font-size:10px;
-  margin-left:5px;
 }
 
 .markdown_textarea_container{
@@ -144,4 +139,17 @@ a{
   color: grey;
   text-decoration: underline;
   font-size: 11px;
+}
+
+.preview_container{
+  width:50%;
+  height:100vh;
+}
+
+.preview_textarea{
+  height:85vh;
+  overflow:auto;
+  width: 381px;
+  font-size:10px;
+  margin-left:5px;
 }
