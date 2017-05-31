@@ -30,6 +30,15 @@ body{
   cursor:pointer;
 }
 
+.nav_link:hover{
+  color:skyblue;
+}
+
+.nav_plus{
+  float:right;
+  padding-right:10px;
+}
+
 .save_file{
   float:right;
   margin-right:20px;
