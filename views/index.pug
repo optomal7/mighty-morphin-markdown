@@ -1,7 +1,7 @@
 extends layout
 
 block content
-  
+
   .tool_container
     .nav
       .nav_title #{title}
@@ -14,11 +14,11 @@ block content
             .nav_plus +
         a.fork_me(href="https://github.com/optomal7/mighty-morphin-markdown" target="_blank") Fork me on Github
     .content
-      .title_bar 
-        p.file_name ExampleFile.md
-          span.save_file Save
+      .title_bar
+        .file_name untitled.md
+        .save_file#sv_file Save
       .content_container
-        .markdown_container 
+        .markdown_container
           .markdown_header markdown
           .markdown_textarea_container
             textarea.markdown_textarea

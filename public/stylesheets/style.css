@@ -32,6 +32,14 @@ body{
   /*background-color:orange;*/
 }
 
+.nav_link{
+  padding-bottom:10px;
+  padding: 10px 0 10px 10px;
+  display:inline-block;
+  width:84%;
+  /*background-color:orange;*/
+}
+
 .nav_link_container{
   border-top:1px solid grey;
 }
