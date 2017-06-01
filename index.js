@@ -19,4 +19,21 @@ router.get('/', function(req, res) {
   });
 });
 
+router.delete('/:file', function (req, res) {
+  let file = __dirname + '/data/' + req.params.file
+  let dir = __dirname + '/data/';
+  fs.unlink(file, (err) => {
+    if (err) {
+      res.sendStatus(500);
+    } else {
+      res.sendStatus(200);
+    }
+  })
+})
+
+router.post('/saveZone', (req, res) => {
+  let dir = __dirname + '/data/' + req.body.file
+  fs.writeFile(dir, req.body.data)
+  res.sendStatus(200)
+})
 module.exports = router;
