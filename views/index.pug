@@ -3,24 +3,9 @@ extends layout
 block content
 
   .tool_container
-    .nav
-      .nav_title #{title}
-      .nav_links
-        .nav_link_container
-        .nav_link.nav_add_file_btn
-          div New File
-            .nav_plus +
-        a.fork_me(href="https://github.com/optomal7/mighty-morphin-markdown" target="_blank") Fork me on Github
+    include sidepane.pug
     .content
-      .title_bar
-        .file_name untitled.md
-        .save_file#sv_file Save
+      include title_bar
       .content_container
-        .markdown_container
-          .markdown_header markdown
-          .markdown_textarea_container
-            textarea.markdown_textarea
-        .preview_container
-          .preview_header preview
-          .preview_container
-            .preview_textarea
+        include markdown_container.pug
+        include preview_container.pug
