@@ -35,6 +35,4 @@ $(document).ready(function(){
     $( '.preview_textarea' ).html( value );
   }).keyup();
 
-  HTMLView.innerHTML = marked(markdownview.textContent)
-
 });

@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon app.js",
+    "insult": "echo \"your mother was a hamster\" && exit 1"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
