@@ -1,3 +1,8 @@
+@font-face{
+  font-family: 'powertxt';
+  src: url('fonts/PowerRangers.ttf');
+}
+
 body{
   font-family:arial;
 }
@@ -21,7 +26,12 @@ body{
 
 .nav_title{
   padding: 45.2px 10px 45.2px 10px;
-  font-weight: bold;
+  /*font-weight: bold;*/
+  font-family: powertxt;
+  font-size: 50px;
+  text-align: center;
+  background-color: red;
+  color: yellow;
 }
 
 #nav_link{
