@@ -72,7 +72,7 @@ $(document).ready(function(){
   }).keyup();
 
 
-  $('.nav_link').on('click',
+  $(document).on('click', '.nav_link',
   function(){
     var url = $(this).data('id')
     $('.file_name').html(url + '.md')
