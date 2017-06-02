@@ -42,7 +42,7 @@ body{
   /*background-color:orange;*/
 }
 
-.nav_link{
+.nav_link, .new_file_btn{
   padding-bottom:10px;
   padding: 10px 0 10px 10px;
   display:inline-block;
