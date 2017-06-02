@@ -1,16 +1,35 @@
 $(document).ready(function(){
 
+  window.onload = function (){
+    if(document.cookie.length != 0) {
+      var cookie = document.cookie
+      var cookieArray = cookie.split('=');
+      saved_file_name = cookieArray[1].replace(/[; ]+/g, " ").trim();
+      document.current_file = saved_file_name;
+
+      var title;
+      if(cookieArray[1] === ''){
+        title = "untitled.md"
+        console.log('saved_file_name => ',saved_file_name)
+      } else {
+        title = saved_file_name
+        console.log('works!!!')
+      }
+      $(".file_name").html(title);
+      title = 'righteous'
+
+      console.log('loaded!!!')
+    }
+  }
+
   console.log(marked('I am using __markdown__!'));
 
   $('.nav_add_file_btn').on('click', function(){
     console.log("click");
-    var title = "untitled";
     title = prompt("Enter filename") + ".md";
     console.log(title);
 
     $(".file_name").html(title);
-    $('.markdown_textarea').val('')
-    $('.preview_textarea').html('')
 
 
   })
@@ -34,7 +53,12 @@ $(document).ready(function(){
       body: JSON.stringify(data)
     })
     .then(() => {
-      console.log('youve been saved');
+      document.cookie = "fileName=" + title + "; expires=Fri, 31 Dec 9999 23:59:59 GMT"
+
+      var cookieString = document.cookie
+      console.log('cookieString => ',cookieString); // why do we see NewerThing.md ?
+      console.log('you\'ve been saved');
+
     })
     .catch(function(e) {
       console.log('EEEEEEERROR!' + e);
@@ -45,8 +69,6 @@ $(document).ready(function(){
       console.log("this should work");
       $('.nav_link_container').prepend('<div class="nav_link name-'+newTitle+'" data-id="'+newTitle+'">'+title+'</div><i data-id="'+newTitle+'" aria-hidden="true" class="fa fa-trash-o delete-'+newTitle+'"></i>')
     }
-
-
   })
 
   $(document).on('click', '.fa-trash-o',
@@ -76,7 +98,7 @@ $(document).ready(function(){
   $(document).on('click', '.nav_link',
   function(){
     var url = $(this).data('id')
-    $('.file_name').html(url + '.md')
+    $('.title_bar').html(url + '.md')
     url = '/'+url+'.md'
     console.log('url --> ',url)
 
@@ -94,7 +116,13 @@ $(document).ready(function(){
         $('.preview_textarea').html(marked(content));
       }
     )
-  })
+    var title = $(this).data('id')+'.md'
+    console.log('title ===> ',title);
+    document.cookie = "fileName=" + title + "; expires=Fri, 31 Dec 9999 23:59:59 GMT"
+    console.log('document.cookie => ',document.cookie);
+  }
+
+)
 
 
 
