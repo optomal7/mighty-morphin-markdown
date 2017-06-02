@@ -36,4 +36,16 @@ router.post('/saveZone', (req, res) => {
   fs.writeFile(dir, req.body.data)
   res.sendStatus(200)
 })
+
+
+router.get('/:url', function(req, res) {
+
+  let file  = __dirname + '/data/' + req.params.url;
+  console.log('req ==> ',req)
+  console.log('file => ',file)
+  Promise.resolve( fs.readFileSync(file, 'utf8')).then(res.send.bind(res) );
+
+});
+
+
 module.exports = router;

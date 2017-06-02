@@ -69,7 +69,33 @@ $(document).ready(function(){
     $( '.preview_textarea' ).html( value );
   }).keyup();
 
+
+  $('.nav_link').on('click',
+  function(){
+    var url = $(this).data('id')
+    url = '/'+url+'.md'
+    console.log('url --> ',url)
+
+    fetch(url, {
+      method: 'get'
+    }).then(
+      function(res){
+        console.log('res => ',res)
+        return res.text()
+      }
+    ).then(
+      function(content){
+        console.log('content => ', content)
+        $('.markdown_textarea').val(content);
+        $('.preview_textarea').html(marked(content));
+      }
+    )
+  })
+
+
+
 });
+
 
 
 
