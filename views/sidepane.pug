@@ -2,7 +2,7 @@
 .nav
   .nav_title #{title}
   .nav_links
-    .nav_link_container
+    .nav_link_container#file_titles
       for file in files
         div(class="nav_link name-"+file.substring(0,file.length - 3) data-id=file.substring(0,file.length - 3)) #{file}
         div(class="fa fa-trash-o delete-"+file.substring(0,file.length - 3) data-id=file.substring(0,file.length - 3))

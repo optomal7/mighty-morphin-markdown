@@ -41,9 +41,10 @@ $(document).ready(function(){
     })
     console.log("heyoo!");
 
-    console.log(title);
-    $('.nav_link_container').prepend('<div class="nav_link name-'+newTitle+'" data-id="'+newTitle+'">'+title+'</div><i data-id="'+newTitle+'" aria-hidden="true" class="fa fa-trash-o delete-'+newTitle+'"></i>')
-
+    if (title !== document.getElementById('file_titles').firstChild.innerHTML) {
+      console.log("this should work");
+      $('.nav_link_container').prepend('<div class="nav_link name-'+newTitle+'" data-id="'+newTitle+'">'+title+'</div><i data-id="'+newTitle+'" aria-hidden="true" class="fa fa-trash-o delete-'+newTitle+'"></i>')
+    }
 
 
   })
