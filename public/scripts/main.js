@@ -48,8 +48,8 @@ $(document).ready(function(){
     console.log(title);
 
     $(".file_name").html(title);
-
-
+    $(".markdown_textarea").val('');
+    $('.preview_textarea').html('')
   })
 
   $("#sv_file").on('click', function(){
