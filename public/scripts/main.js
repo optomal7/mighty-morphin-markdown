@@ -16,7 +16,6 @@ $(document).ready(function(){
         console.log('works!!!')
       }
       $(".file_name").html(title);
-      title = 'righteous'
 
       console.log('loaded!!!')
     }
