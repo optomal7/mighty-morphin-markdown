@@ -1,25 +1,25 @@
 $(document).ready(function(){
 
-  // window.onload = function (){
-  //   if(document.cookie.length != 0) {
-  //     var cookie = document.cookie
-  //     var cookieArray = cookie.split('=');
-  //     saved_file_name = cookieArray[1].replace(/[; ]+/g, " ").trim();
-  //     document.current_file = saved_file_name;
-  //
-  //     var title;
-  //     if(cookieArray[1] === ''){
-  //       title = "untitled.md"
-  //       console.log('saved_file_name => ',saved_file_name)
-  //     } else {
-  //       title = saved_file_name
-  //       console.log('works!!!')
-  //     }
-  //     $(".file_name").html(title);
-  //
-  //     console.log('loaded!!!')
-  //   }
-  // }
+  window.onload = function (){
+    if(document.cookie.length != 0) {
+      var cookie = document.cookie
+      var cookieArray = cookie.split('=');
+      saved_file_name = cookieArray[1].replace(/[; ]+/g, " ").trim();
+      document.current_file = saved_file_name;
+
+      var title;
+      if(cookieArray[1] === ''){
+        title = "untitled.md"
+        console.log('saved_file_name => ',saved_file_name)
+      } else {
+        title = saved_file_name
+        console.log('works!!!')
+      }
+      $(".file_name").html(title);
+
+      console.log('loaded!!!')
+    }
+  }
 
   console.log(marked('I am using __markdown__!'));
 
