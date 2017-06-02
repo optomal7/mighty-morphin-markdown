@@ -9,6 +9,8 @@ $(document).ready(function(){
     console.log(title);
 
     $(".file_name").html(title);
+    $('.markdown_textarea').val('')
+    $('.preview_textarea').html('')
 
 
   })
@@ -40,7 +42,7 @@ $(document).ready(function(){
     console.log("heyoo!");
 
     console.log(title);
-    $('.nav_link_container').prepend('<div class="nav_link name-'+newTitle+'" data-id="'+newTitle+'">'+newTitle+'</div><i data-id="'+newTitle+'" aria-hidden="true" class="fa fa-trash-o delete-'+newTitle+'"></i>')
+    $('.nav_link_container').prepend('<div class="nav_link name-'+newTitle+'" data-id="'+newTitle+'">'+title+'</div><i data-id="'+newTitle+'" aria-hidden="true" class="fa fa-trash-o delete-'+newTitle+'"></i>')
 
 
 
@@ -73,7 +75,7 @@ $(document).ready(function(){
   $('.nav_link').on('click',
   function(){
     var url = $(this).data('id')
-    $('.title_bar').html(url + '.md')
+    $('.file_name').html(url + '.md')
     url = '/'+url+'.md'
     console.log('url --> ',url)
 
