@@ -4,16 +4,35 @@ $(document).ready(function(){
     if(document.cookie.length != 0) {
       var cookie = document.cookie
       var cookieArray = cookie.split('=');
-      saved_file_name = cookieArray[1].replace(/[; ]+/g, " ").trim();
+      cookieArray = cookieArray[1].split(';')
+      saved_file_name = cookieArray[0].replace(/[; ]+/g, " ").trim();
       document.current_file = saved_file_name;
-
+      console.log(saved_file_name);
       var title;
-      if(cookieArray[1] === ''){
+      if(cookieArray[0] === ''){
         title = "untitled.md"
         console.log('saved_file_name => ',saved_file_name)
       } else {
         title = saved_file_name
         console.log('works!!!')
+        url = '/'+title
+        console.log('url --> ',url)
+
+        fetch(url, {
+          method: 'get'
+        }).then(
+          function(res){
+            console.log('res => ',res)
+            return res.text()
+          }
+        ).then(
+          function(content){
+            console.log('content => ', content)
+            $('.markdown_textarea').val(content);
+            $('.preview_textarea').html(marked(content));
+          }
+        )
+
       }
       $(".file_name").html(title);
 
@@ -72,6 +91,7 @@ $(document).ready(function(){
 
   $(document).on('click', '.fa-trash-o',
   function () {
+      document.cookie = "fileName="
       var id = $(this).data('id')
       if(id.substring(id.length - 3, id.length) === '.md'){
         id = id.substring(0, id.length - 3);
