@@ -15,6 +15,24 @@ $(document).ready(function(){
       } else {
         title = saved_file_name
         console.log('works!!!')
+        url = '/'+title
+        console.log('url --> ',url)
+
+        fetch(url, {
+          method: 'get'
+        }).then(
+          function(res){
+            console.log('res => ',res)
+            return res.text()
+          }
+        ).then(
+          function(content){
+            console.log('content => ', content)
+            $('.markdown_textarea').val(content);
+            $('.preview_textarea').html(marked(content));
+          }
+        )
+
       }
       $(".file_name").html(title);
 
@@ -73,6 +91,7 @@ $(document).ready(function(){
 
   $(document).on('click', '.fa-trash-o',
   function () {
+      document.cookie = "fileName="
       var id = $(this).data('id')
       if(id.substring(id.length - 3, id.length) === '.md'){
         id = id.substring(0, id.length - 3);
