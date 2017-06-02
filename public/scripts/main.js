@@ -4,11 +4,12 @@ $(document).ready(function(){
     if(document.cookie.length != 0) {
       var cookie = document.cookie
       var cookieArray = cookie.split('=');
-      saved_file_name = cookieArray[1].replace(/[; ]+/g, " ").trim();
+      cookieArray = cookieArray[1].split(';')
+      saved_file_name = cookieArray[0].replace(/[; ]+/g, " ").trim();
       document.current_file = saved_file_name;
-
+      console.log(saved_file_name);
       var title;
-      if(cookieArray[1] === ''){
+      if(cookieArray[0] === ''){
         title = "untitled.md"
         console.log('saved_file_name => ',saved_file_name)
       } else {
