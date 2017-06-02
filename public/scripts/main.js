@@ -1,25 +1,25 @@
 $(document).ready(function(){
 
-  window.onload = function (){
-    if(document.cookie.length != 0) {
-      var cookie = document.cookie
-      var cookieArray = cookie.split('=');
-      saved_file_name = cookieArray[1].replace(/[; ]+/g, " ").trim();
-      document.current_file = saved_file_name;
-
-      var title;
-      if(cookieArray[1] === ''){
-        title = "untitled.md"
-        console.log('saved_file_name => ',saved_file_name)
-      } else {
-        title = saved_file_name
-        console.log('works!!!')
-      }
-      $(".file_name").html(title);
-
-      console.log('loaded!!!')
-    }
-  }
+  // window.onload = function (){
+  //   if(document.cookie.length != 0) {
+  //     var cookie = document.cookie
+  //     var cookieArray = cookie.split('=');
+  //     saved_file_name = cookieArray[1].replace(/[; ]+/g, " ").trim();
+  //     document.current_file = saved_file_name;
+  //
+  //     var title;
+  //     if(cookieArray[1] === ''){
+  //       title = "untitled.md"
+  //       console.log('saved_file_name => ',saved_file_name)
+  //     } else {
+  //       title = saved_file_name
+  //       console.log('works!!!')
+  //     }
+  //     $(".file_name").html(title);
+  //
+  //     console.log('loaded!!!')
+  //   }
+  // }
 
   console.log(marked('I am using __markdown__!'));
 
@@ -97,7 +97,7 @@ $(document).ready(function(){
   $(document).on('click', '.nav_link',
   function(){
     var url = $(this).data('id')
-    $('.title_bar').html(url + '.md')
+    $('.file_name').html(url + '.md')
     url = '/'+url+'.md'
     console.log('url --> ',url)
 
