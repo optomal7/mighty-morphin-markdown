@@ -73,6 +73,7 @@ $(document).ready(function(){
   $('.nav_link').on('click',
   function(){
     var url = $(this).data('id')
+    $('.title_bar').html(url + '.md')
     url = '/'+url+'.md'
     console.log('url --> ',url)
 
