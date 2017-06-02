@@ -65,10 +65,10 @@ $(document).ready(function(){
     })
     console.log("heyoo!");
 
-    console.log(title);
-    $('.nav_link_container').prepend('<div class="nav_link name-'+newTitle+'" data-id="'+newTitle+'">'+newTitle+'</div><i data-id="'+newTitle+'" aria-hidden="true" class="fa fa-trash-o delete-'+newTitle+'"></i>')
-
-
+    if (title !== document.getElementById('file_titles').firstChild.innerHTML) {
+      console.log("this should work");
+      $('.nav_link_container').prepend('<div class="nav_link name-'+newTitle+'" data-id="'+newTitle+'">'+title+'</div><i data-id="'+newTitle+'" aria-hidden="true" class="fa fa-trash-o delete-'+newTitle+'"></i>')
+    }
   })
 
   $(document).on('click', '.fa-trash-o',
@@ -95,7 +95,7 @@ $(document).ready(function(){
   }).keyup();
 
 
-  $('.nav_link').on('click',
+  $(document).on('click', '.nav_link',
   function(){
     var url = $(this).data('id')
     $('.title_bar').html(url + '.md')
