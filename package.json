@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test\" && exit 1",
-    "start": "nodemon app.js",
+    "start": "node app.js",
     "insult": "echo \"your mother was a hamster\" && exit 1"
   },
   "dependencies": {
