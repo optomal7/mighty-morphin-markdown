@@ -4,8 +4,7 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test\" && exit 1",
-    "start": "node app.js",
-    "insult": "echo \"your mother was a hamster\" && exit 1"
+    "start": "node app.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",
@@ -14,7 +13,6 @@
     "express": "~4.15.2",
     "morgan": "~1.8.1",
     "nodemon": "^1.11.0",
-    "pug": "~2.0.0-beta11",
-    "serve-favicon": "~2.4.2"
+    "pug": "~2.0.0-beta11"
   }
 }
