@@ -7,14 +7,14 @@ router.get('/', function(req, res) {
   let dir = __dirname + '/data/'
   fs.readdir(dir, (err, files) => {
     if (err) {
-          console.log('oops!!!!!')
+          //console.log('oops!!!!!')
           throw err;
     } else {
       res.render('index', {
         files: files,
         title: 'mighty!morphin markdown'
       });
-      console.log(files);
+      //console.log(files);
     }
   });
 });
@@ -42,7 +42,7 @@ router.get('/:url', function(req, res) {
 
   let file  = __dirname + '/data/' + req.params.url;
   //console.log('req ==> ',req)
-  console.log('file => ',file)
+  //console.log('file => ',file)
   Promise.resolve( fs.readFileSync(file, 'utf8')).then(res.send.bind(res) );
 
 });
