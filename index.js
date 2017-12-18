@@ -3,11 +3,11 @@ var router = express.Router();
 var fs = require('fs');
 var path = require('path');
 
-/* GET home page. */
 router.get('/', function(req, res) {
   let dir = __dirname + '/data/'
   fs.readdir(dir, (err, files) => {
     if (err) {
+          console.log('oops!!!!!')
           throw err;
     } else {
       res.render('index', {
@@ -41,7 +41,7 @@ router.post('/saveZone', (req, res) => {
 router.get('/:url', function(req, res) {
 
   let file  = __dirname + '/data/' + req.params.url;
-  console.log('req ==> ',req)
+  //console.log('req ==> ',req)
   console.log('file => ',file)
   Promise.resolve( fs.readFileSync(file, 'utf8')).then(res.send.bind(res) );
 

@@ -1,22 +1,24 @@
 $(document).ready(function(){
 
   window.onload = function (){
+		console.log('oops!');
     if(document.cookie.length != 0) {
       var cookie = document.cookie
       var cookieArray = cookie.split('=');
+			console.log('look at me >>>>>>', cookieArray, cookie);
       cookieArray = cookieArray[1].split(';')
       saved_file_name = cookieArray[0].replace(/[; ]+/g, " ").trim();
       document.current_file = saved_file_name;
       console.log(saved_file_name);
       var title;
-      if(cookieArray[0] === ''){
-        title = "untitled.md"
-        console.log('saved_file_name => ',saved_file_name)
-      } else {
-        title = saved_file_name
-        console.log('works!!!')
-        url = '/'+title
-        console.log('url --> ',url)
+    if(cookieArray[0] === ''){
+      title = "untitled.md"
+      console.log('saved_file_name => ',saved_file_name)
+    } else {
+      title = saved_file_name
+      console.log('works!!!')
+      url = '/'+title
+      console.log('url --> ',url)
 
         fetch(url, {
           method: 'get'
@@ -45,6 +47,9 @@ $(document).ready(function(){
   $('.nav_add_file_btn').on('click', function(){
     console.log("click");
     title = prompt("Enter filename") + ".md";
+		if (title == ".md") {
+			title = "untitled.md"
+		}
     console.log(title);
 
     $(".file_name").html(title);
@@ -91,7 +96,7 @@ $(document).ready(function(){
 
   $(document).on('click', '.fa-trash-o',
   function () {
-      document.cookie = "fileName="
+      document.cookie = 'fileName=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
       var id = $(this).data('id')
       if(id.substring(id.length - 3, id.length) === '.md'){
         id = id.substring(0, id.length - 3);
